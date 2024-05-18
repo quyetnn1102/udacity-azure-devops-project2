@@ -14,7 +14,7 @@ variables:
   webAppName: 'quyetnn-udacity-project2'
 
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  vmImageName: 'project-hosted-agent'
 
   # Environment name
   environmentName: 'DEV'
