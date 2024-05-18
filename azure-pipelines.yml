@@ -22,8 +22,8 @@ variables:
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
 
-  # Python version: 3.7
-  pythonVersion: '3.7'
+  # Python version: 3.9.19
+  pythonVersion: '3.9.19'
 
 stages:
 - stage: Build
@@ -80,7 +80,7 @@ stages:
             displayName: 'Use Python version'
 
           - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App : quyetnn-udacity-project'
+            displayName: 'Deploy Azure Web App : quyetnn-udacity-project2'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(webAppName)
