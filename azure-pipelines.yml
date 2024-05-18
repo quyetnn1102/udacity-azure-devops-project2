@@ -11,13 +11,13 @@ variables:
   azureServiceConnectionId: '3e422ffe-0de0-4177-b163-437b8aefdf22'
 
   # Web app name
-  webAppName: 'quyetnn-azuredevops-project2'
+  webAppName: 'quyetnn-udacity-project2'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
   # Environment name
-  environmentName: 'quyetnn-azuredevops-project2'
+  environmentName: 'DEV'
 
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
@@ -46,6 +46,7 @@ stages:
         pip install -r requirements.txt
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
+
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
@@ -79,9 +80,8 @@ stages:
             displayName: 'Use Python version'
 
           - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App : quyetnn-udacity-project'
+            displayName: 'Deploy Azure Web App : quyetnn-udacity-project2'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(webAppName)
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
-	
