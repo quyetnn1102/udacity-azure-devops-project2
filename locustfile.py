@@ -4,5 +4,9 @@ class WebsiteTestUser(HttpUser):
     wait_time = between(0.5, 3.0)
 
     @task(1)
-    def testget(self):
-        self.client.get("https://quyetnn-azuredevop-project2.azurewebsites.net")
+    def test1(self):
+        self.client.get("https://quyetnn-udacity-project2.azurewebsites.net/")
+
+    @task(2)
+    def test2(self):
+        self.client.post("https://quyetnn-udacity-project2.azurewebsites.net:443/predict")
