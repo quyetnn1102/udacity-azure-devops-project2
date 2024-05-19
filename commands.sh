@@ -1,0 +1,1 @@
+az webapp up -n quyetnn-udacity-project2 -g Azuredevops --sku FREE

@@ -4,7 +4,7 @@
 In this project, you will build a Github repository from scratch and create a scaffolding that will assist you in performing both Continuous Integration and Continuous Delivery. You'll use Github Actions along with a Makefile, requirements.txt and application code to perform an initial lint, test, and install cycle. Next, you'll integrate this project with Azure Pipelines to enable Continuous Delivery to Azure App Service.
 
 ## Project Plan
-It is very helpful to have a project plan and task tracking so in this project we will use Excel spreadsheet and Trello board for that:
+It is very important to have a project plan and task tracking so in this project we will use Excel spreadsheet and Trello:
 
 * [Trello Board](https://trello.com/b/iZRpZVWd/udacity-azure-devops-building-ci-cd-pipeline)
     
@@ -16,8 +16,8 @@ It is very helpful to have a project plan and task tracking so in this project w
 ![CD diagram](./screenshots/cd-diagrams.png)
 
 ### 2.1.	Configuring GitHub
-    - Log into Azure Cloud Shell
-    - Create a ssh key
+- Log into Azure Cloud Shell
+- Create a ssh key
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "yourgithub_Id@gmail.com"
@@ -26,14 +26,14 @@ ssh-keygen -t rsa -b 2048 -C "yourgithub_Id@gmail.com"
 
 Copy the public key to your GitHub Account -> Settings -> SSH and GPG keys (https://github.com/settings/keys)
 
-
+### 2.2.	Clone code
 Once SSH Key configured in Github then clone project into Azure Cloud Shell 
 ```bash
 git clone git@github.com:quyetnn1102/udacity-azure-devops-project2.git
 ```
 ![alt text](./screenshots/clone_project.png)
 
-Create a Python Virtual Environment to run your application
+### 2.3.	Create a Python Virtual Environment to run your application
 
 ```bash
 make setup
@@ -69,7 +69,8 @@ sh make_prediction.sh
 ```
 ![alt text](./screenshots/make_test_local.png)
 
-Now time to deploy the application to Azure App Service using below command
+### 2.4.	Deploy the application to Azure App Service
+Now time to deploy the application to Azure App Service using below command which already written up to `commands.sh`
 ```bash
 az webapp up -n quyetnn-udacity-project2 -g Azuredevops --sku FREE
 ```
@@ -94,15 +95,19 @@ az webapp log tail --name quyetnn-udacity-project2 --resource-group Azuredevops
 
 ![alt text](./screenshots/appservice_tail_log.png)
 
-
-Set up the CI pipeline with GitHub Actions and result when push to the repository:
+### 2.5.	Setup GitHub Action
+Set up the CI pipeline with GitHub Actions and below is the result when push a change to the repository:
 ![Github action](./screenshots/github_action_output.png)
 
-Setup Azure Pipelines to continue deploy application to Azure App Services follow this instructions (https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops)
+### 2.6.	Setup Azure Pipelines
+Setup Azure Pipelines to continue deploy application to Azure App Services follow these instructions from Azure [Azure pipeline python app instructions](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops) and [Azure pipeline self hosted agent](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/linux-agent?view=azure-devops)
 
 ![AzurePipeline](./screenshots/Azure%20pipeline%20success.png)
 
-Load test using locust
+
+### 2.2.	Load testing using Locust
+
+- Install locust
 ```bash
 pip install locust
 ```
