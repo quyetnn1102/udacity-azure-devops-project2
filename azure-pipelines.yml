@@ -8,7 +8,7 @@ trigger:
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureServiceConnectionId: '629fa121-21a4-45dd-a353-025da561c394'
+  azureServiceConnectionId: 'd0cac511-2b94-48e2-9636-67da1024ad38'
 
   # Web app name
   webAppName: 'quyetnn-udacity-project2'
@@ -28,7 +28,7 @@ stages:
   jobs:
   - job: BuildJob
     pool:
-      name: project-hosted-agent
+      name: VM Agent Pool
     steps:
     - task: UsePythonVersion@0
       inputs:
@@ -64,7 +64,7 @@ stages:
   jobs:
   - deployment: DeploymentJob
     pool:
-      name: project-hosted-agent
+      name: VM Agent Pool
     environment: $(environmentName)
     strategy:
       runOnce:
