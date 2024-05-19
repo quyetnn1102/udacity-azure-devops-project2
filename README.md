@@ -96,35 +96,27 @@ az webapp log tail --name quyetnn-udacity-project2 --resource-group Azuredevops
 
 
 Set up the CI pipeline with GitHub Actions and result when push to the repository:
-![alt text](./screenshots/github_action_output.png)
+![Github action](./screenshots/github_action_output.png)
 
+Setup Azure Pipelines to continue deploy application to Azure App Services follow this instructions (https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops)
+
+![AzurePipeline](./screenshots/Azure%20pipeline%20success.png)
 
 Load test using locust
 ```bash
 pip install locust
 ```
 
-Move to directory contains locustfile.py before run command:
+Move to directory contains `locustfile.py` before run command:
 ```bash
 locust
 ```
 Open Locust app http://localhost:8089/ then config test with your deployed host `https://quyetnn-udacity-project2.azurewebsites.net/`
+
 ![alt text](./screenshots/locust_config_test.png)
 
 The output test
 ![alt text](./screenshots/locust_load_test.png)
-
-* Successful deploy of the project in Azure Pipelines.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
-
-* Running Azure App Service from Azure Pipelines automatic deployment
-
-* Successful prediction from deployed flask app in Azure Cloud Shell.  [Use this file as a template for the deployed prediction](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/blob/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn/make_predict_azure_app.sh).
-The output should look similar to this:
-
-
-
-
-
 
 
 ## Enhancements
